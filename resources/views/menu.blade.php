@@ -31,6 +31,7 @@
                                     <th>Nombre</th>
                                     <th>Edad</th>
                                     <th>Sexo</th>
+                                    <th>realizo el examen</th>
                                     <th>Resultado Examen</th>
                                 </tr>
                                 </thead>
@@ -42,6 +43,7 @@
                                         <td>{{$usuario -> nombre}}</td>
                                         <td>{{$usuario -> edad}}</td>
                                         <td>{{$usuario -> sexo}}</td>
+                                        <td>{{$usuario -> examen}}</td>
                                         <td>{{$usuario -> res_examen}}</td>
                                         <td><a target="blank" href="{{route('enviar.datos',[
                                             "id" => $usuario -> ID,

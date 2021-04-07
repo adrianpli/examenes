@@ -33,12 +33,13 @@ public function respuestas(Request $respuestas){
 
    $usuario = Usuario::find($respuestas -> idempleado);
    $usuario -> where("ID",$respuestas -> idempleado)
-       ->update(["res_examen" => $puntaje]);
+       ->update(["res_examen" => $puntaje,"examen"=>"si"]);
 
 
-    $destino = $usuario -> correo;
 
-    mail($destino,"Resultados examen PHP","Felicidades completaste el examen de PHP con $puntaje respuestas correctas");
+   // $destino = $usuario -> correo;
+
+    //mail($destino,"Resultados examen PHP","Felicidades completaste el examen de PHP con $puntaje respuestas correctas");
 return view("resultado",["puntuacion" => $puntaje]);
 }
 

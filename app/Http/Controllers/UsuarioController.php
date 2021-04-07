@@ -50,6 +50,7 @@ public function examen(){
         $usuario -> correo =  $correo;
         $usuario -> contra = bcrypt($password);
         $usuario -> res_examen = 0;
+        $usuario -> examen = "no";
         $usuario -> save();
 
         return view("login",["estatus"=> "success", "mensaje"=> "¡Cuenta Creada!"]);
@@ -64,8 +65,12 @@ public function examen(){
             return view("login",["estatus"=> "error", "mensaje"=> "¡Datos incorrectos!"]);
 
         Session::put("usuario",$usuario);
+if($usuario -> examen == "no"){
+    return view("examen");
+}else{
+return view("terminado",["puntuacion" => $usuario->res_examen]);
+}
 
-       return view("examen");
 }
 public function verificarAdmin(Request $datos){
     $admin = admins::where("correo",$datos -> correo)->first();
